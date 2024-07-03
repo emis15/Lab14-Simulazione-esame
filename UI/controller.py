@@ -24,6 +24,7 @@ class Controller:
             return
         if soglia > self._model.massimo or soglia < self._model.minimo:
             self._view.create_alert("Inserire valore compreso tra minimo e massimo")
+            return
         archiMinore, archiMaggiore = self._model.contaArchi(soglia)
         self._view.txt_result2.controls.append(ft.Text(f"Numero di archi con peso maggiore: {len(archiMaggiore)}"))
         self._view.txt_result2.controls.append(ft.Text(f"Numero di archi con peso minore: {len(archiMinore)}"))
@@ -38,6 +39,7 @@ class Controller:
             return
         if soglia > self._model.massimo or soglia < self._model.minimo:
             self._view.create_alert("Inserire valore compreso tra minimo e massimo")
+            return
         self._model.cercaPercorso(soglia)
         self._view.txt_result3.controls.append(ft.Text(f"Peso cammino massimo: {self._model.bestPeso}"))
         for e in self._model.bestPath:

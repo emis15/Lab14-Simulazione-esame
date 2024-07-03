@@ -52,8 +52,8 @@ class Model:
                 self.bestPath = copy.deepcopy(parziale)
                 self.bestPeso = self.calcolaPeso(parziale)
             return
-        sorted(archiAmmissibili, key=lambda x: x[2]['weight'])
-        for e in archiAmmissibili:
+        archiAmmissibiliSorted = sorted(archiAmmissibili, key=lambda x: x[2]['weight'])
+        for e in archiAmmissibiliSorted:
             parziale.append(e)
             self.ricorsione(parziale, e[2]['weight'])
             parziale.pop()
